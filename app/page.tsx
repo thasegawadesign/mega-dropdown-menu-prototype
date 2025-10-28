@@ -1,5 +1,6 @@
 import Logo from "@/app/components/Logo";
 import MegaDropdownMenu from "@/app/components/MegaDropdownMenu";
+import DisclosureButton from "./components/DisclosureButton";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <header>
         <Logo />
         <MegaDropdownMenu />
+        <DisclosureButton />
       </header>
     </>
   );
