@@ -1,3 +1,13 @@
+import Logo from "@/app/components/Logo";
+import MegaDropdownMenu from "@/app/components/MegaDropdownMenu";
+
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <header>
+        <Logo />
+        <MegaDropdownMenu />
+      </header>
+    </>
+  );
 }
