@@ -10,11 +10,13 @@ export default function DisclosureButton() {
         }
       >
         <Menu
-          className={clsx("group-hover:text-primary h-6 w-6 text-gray-500")}
+          className={clsx(
+            "group-hover:text-primary group-focus-visible:text-primary h-6 w-6 text-gray-500",
+          )}
         />
         <span
           className={
-            "group-hover:text-primary text-[8px] font-medium text-gray-800 lg:text-[10px]"
+            "group-hover:text-primary group-focus-visible:text-primary text-[8px] font-medium text-gray-800 lg:text-[10px]"
           }
         >
           メニュー
