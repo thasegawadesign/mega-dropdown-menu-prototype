@@ -13,6 +13,7 @@ export type MegaColumn = {
 export type MegaSection = {
   id: navId;
   label: string;
+  href: string;
   columns?: MegaColumn[];
 };
 
@@ -30,6 +31,7 @@ export const MEGA_SECTIONS: MegaSection[] = [
   {
     id: navIds[0],
     label: "企業情報",
+    href: "/company",
     columns: [
       {
         title: "会社情報",
@@ -61,13 +63,11 @@ export const MEGA_SECTIONS: MegaSection[] = [
   {
     id: navIds[1],
     label: "事業概要",
+    href: "/business",
     columns: [
       {
         title: "概要",
-        items: [
-          { label: "事業概要", href: "/business/overview" },
-          { label: "領域・事業の構成概要", href: "/business/segments" },
-        ],
+        items: [{ label: "領域・事業の構成概要", href: "/business/segments" }],
       },
       {
         title: "グループを知る",
@@ -82,11 +82,11 @@ export const MEGA_SECTIONS: MegaSection[] = [
   {
     id: navIds[2],
     label: "株主・投資家情報",
+    href: "/ir",
     columns: [
       {
         title: "基本情報",
         items: [
-          { label: "株主・投資家情報", href: "/ir" },
           { label: "経営方針", href: "/ir/policy" },
           { label: "業績・財務情報", href: "/ir/finance" },
           { label: "IRサイトマップ", href: "/ir/sitemap" },
@@ -114,6 +114,7 @@ export const MEGA_SECTIONS: MegaSection[] = [
   {
     id: navIds[3],
     label: "サステナビリティ",
+    href: "/sustainability",
     columns: [
       {
         title: "基本方針・戦略",
@@ -170,6 +171,7 @@ export const MEGA_SECTIONS: MegaSection[] = [
   {
     id: navIds[4],
     label: "採用情報",
+    href: "/recruit",
     columns: [
       {
         title: "採用情報",

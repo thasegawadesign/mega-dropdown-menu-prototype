@@ -2,6 +2,7 @@
 
 import { MEGA_SECTIONS, MegaSection, navId } from "@/constants/mega-data";
 import clsx from "clsx";
+import Link from "next/link";
 import { useState } from "react";
 
 type Props = {
@@ -36,6 +37,32 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
           ))}
         </ul>
       </nav>
+      <div>
+        <nav>
+          {sections.map((section) => {
+            return (
+              <div key={section.id}>
+                <section>
+                  <h3>
+                    <Link href={section.href}>{section.label}</Link>
+                  </h3>
+                  <ul>
+                    {section.columns?.map((column) => (
+                      <div key={column.title}>
+                        {column.items.map((item) => (
+                          <li key={item.label}>
+                            <Link href={item.href}>{item.label}</Link>
+                          </li>
+                        ))}
+                      </div>
+                    ))}
+                  </ul>
+                </section>
+              </div>
+            );
+          })}
+        </nav>
+      </div>
     </>
   );
 }
