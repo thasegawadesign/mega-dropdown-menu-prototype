@@ -38,7 +38,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
           ))}
         </ul>
       </nav>
-      <div className={clsx("absolute inset-x-0 top-18 hidden lg:block")}>
+      <div className={clsx("absolute inset-x-0 top-18 z-50 hidden lg:block")}>
         <nav>
           {sections.map((section) => {
             return (
@@ -47,7 +47,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
                 className={clsx(openId === section.id ? "block" : "hidden")}
                 onMouseLeave={() => setOpenId(null)}
               >
-                <section>
+                <section className={clsx("bg-white")}>
                   <h3>
                     <Link
                       href={section.href}
@@ -82,6 +82,12 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
           })}
         </nav>
       </div>
+      <div
+        className={clsx(
+          openId !== null ? "opacity-100" : "pointer-events-none opacity-0",
+          "absolute inset-x-0 top-18 block h-screen w-full bg-black/40 transition-opacity duration-500",
+        )}
+      ></div>
     </>
   );
 }
