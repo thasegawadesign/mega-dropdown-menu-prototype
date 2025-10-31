@@ -21,7 +21,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
               >
                 <span
                   className={clsx(
-                    "group-hover:text-primary text-sm font-medium text-gray-800 transition-colors",
+                    "group-hover:text-primary group-focus-visible:text-primary text-sm font-medium text-gray-800 transition-colors",
                   )}
                 >
                   {section.label}
