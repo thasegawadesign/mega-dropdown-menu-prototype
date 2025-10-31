@@ -197,7 +197,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
         tabIndex={-1}
         className={clsx(
           openId !== null ? "opacity-100" : "pointer-events-none opacity-0",
-          "absolute inset-x-0 top-18 block h-screen w-full bg-black/40 transition-opacity duration-1000 ease-out",
+          "absolute inset-x-0 top-18 block h-screen w-full bg-black/50 transition-opacity duration-1000 ease-out",
         )}
       ></div>
     </>
