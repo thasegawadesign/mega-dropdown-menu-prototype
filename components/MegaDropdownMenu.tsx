@@ -32,6 +32,36 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
     panel: `${navIdBase}-panel-${id}`,
   });
 
+  const focusFirstIn = (id: navId) => {
+    const root = panelRefs.current[id];
+    if (!root) return;
+    const first = root.querySelector<HTMLElement>(
+      "a, button, [tabindex]:not([tabindex='-1'])",
+    );
+    first?.focus();
+  };
+
+  const onTopKeyDown = (
+    e: React.KeyboardEvent<HTMLButtonElement>,
+    id: navId,
+  ) => {
+    switch (e.key) {
+      case "ArrowDown":
+      case "Enter":
+      case " ":
+        e.preventDefault();
+        clearClose();
+        setOpenId(id);
+        requestAnimationFrame(() => focusFirstIn(id));
+        break;
+      case "Escape":
+        e.preventDefault();
+        setOpenId(null);
+        triggerRefs.current[id]?.focus();
+        break;
+    }
+  };
+
   return (
     <>
       <nav aria-label="グローバルナビゲーション">
@@ -64,6 +94,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
                     clearClose();
                     setOpenId(section.id);
                   }}
+                  onKeyDown={(e) => onTopKeyDown(e, section.id)}
                 >
                   <span
                     className={clsx(
