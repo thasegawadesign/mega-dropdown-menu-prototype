@@ -77,7 +77,11 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
                 onPointerLeave={() => scheduleClose(220)}
               >
                 <section className={clsx("bg-white")}>
-                  <div className={clsx("mx-auto max-w-[584px] pt-10 pb-20")}>
+                  <div
+                    className={clsx(
+                      "mx-auto max-w-[516px] pt-10 pb-20 xl:max-w-[556px] 2xl:max-w-[588px]",
+                    )}
+                  >
                     <h3 className={clsx("mb-8")}>
                       <Link
                         href={section.href}
