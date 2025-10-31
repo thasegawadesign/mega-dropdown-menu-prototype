@@ -23,6 +23,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
                   "group after:bg-primary relative h-18 cursor-pointer px-6 after:absolute after:inset-x-0 after:bottom-0.5 after:h-[3px] after:origin-bottom after:scale-y-0 after:opacity-0 after:transition-all after:duration-500 hover:after:scale-y-100 hover:after:opacity-100 hover:after:duration-200 focus-visible:after:absolute focus-visible:after:scale-y-100 focus-visible:after:opacity-100",
                 )}
                 onMouseEnter={() => setOpenId(section.id)}
+                onMouseLeave={() => setOpenId(null)}
                 aria-expanded={openId === section.id}
               >
                 <span
@@ -37,21 +38,39 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
           ))}
         </ul>
       </nav>
-      <div>
+      <div className={clsx("absolute inset-x-0 top-18 hidden lg:block")}>
         <nav>
           {sections.map((section) => {
             return (
-              <div key={section.id}>
+              <div
+                key={section.id}
+                className={clsx(openId === section.id ? "block" : "hidden")}
+                onMouseLeave={() => setOpenId(null)}
+              >
                 <section>
                   <h3>
-                    <Link href={section.href}>{section.label}</Link>
+                    <Link
+                      href={section.href}
+                      className={clsx(
+                        "hover:text-primary focus-visible:text-primary text-lg font-medium transition-colors",
+                      )}
+                    >
+                      {section.label}
+                    </Link>
                   </h3>
                   <ul>
                     {section.columns?.map((column) => (
                       <div key={column.title}>
                         {column.items.map((item) => (
                           <li key={item.label}>
-                            <Link href={item.href}>{item.label}</Link>
+                            <Link
+                              href={item.href}
+                              className={clsx(
+                                "hover:text-primary focus-visible:text-primary text-base transition-colors",
+                              )}
+                            >
+                              {item.label}
+                            </Link>
                           </li>
                         ))}
                       </div>
