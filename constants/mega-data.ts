@@ -11,12 +11,24 @@ export type MegaColumn = {
 };
 
 export type MegaSection = {
+  id: navId;
   label: string;
   columns?: MegaColumn[];
 };
 
+export const navIds = [
+  "company",
+  "business",
+  "ir",
+  "sustainability",
+  "recruit",
+] as const;
+
+export type navId = (typeof navIds)[number];
+
 export const MEGA_SECTIONS: MegaSection[] = [
   {
+    id: navIds[0],
     label: "企業情報",
     columns: [
       {
@@ -47,6 +59,7 @@ export const MEGA_SECTIONS: MegaSection[] = [
     ],
   },
   {
+    id: navIds[1],
     label: "事業概要",
     columns: [
       {
@@ -67,6 +80,7 @@ export const MEGA_SECTIONS: MegaSection[] = [
     ],
   },
   {
+    id: navIds[2],
     label: "株主・投資家情報",
     columns: [
       {
@@ -98,6 +112,7 @@ export const MEGA_SECTIONS: MegaSection[] = [
     ],
   },
   {
+    id: navIds[3],
     label: "サステナビリティ",
     columns: [
       {
@@ -153,6 +168,20 @@ export const MEGA_SECTIONS: MegaSection[] = [
     ],
   },
   {
+    id: navIds[4],
     label: "採用情報",
+    columns: [
+      {
+        title: "採用情報",
+        items: [
+          { label: "新卒採用情報", href: "/recruit/new-graduate" },
+          { label: "キャリア採用情報", href: "/recruit/career" },
+          {
+            label: "アルバイト・インターンシップ",
+            href: "/recruit/internship",
+          },
+        ],
+      },
+    ],
   },
 ];
