@@ -73,7 +73,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
               >
                 <section
                   className={clsx(
-                    "origin-top bg-white transition-[max-height] delay-0 duration-500 ease-in-out",
+                    "origin-top bg-white transition-[max-height] delay-0 duration-500 ease-out",
                     open ? "max-h-screen" : "max-h-0",
                   )}
                 >
