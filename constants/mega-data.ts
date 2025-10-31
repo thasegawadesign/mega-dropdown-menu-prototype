@@ -179,7 +179,7 @@ export const MEGA_SECTIONS: MegaSection[] = [
           { label: "新卒採用情報", href: "/recruit/new-graduate" },
           { label: "キャリア採用情報", href: "/recruit/career" },
           {
-            label: "アルバイト・インターンシップ",
+            label: "アルバイト・インターンシップ採用情報",
             href: "/recruit/internship",
           },
         ],
