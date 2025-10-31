@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "メガドロップダウンメニューのインタラクション検証プロトタイプ",
   description: "メガドロップダウンメニューのインタラクション検証プロトタイプ",
 };
+
+const notoSansJp = Noto_Sans_JP({
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
@@ -13,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body className={notoSansJp.className}>{children}</body>
     </html>
   );
 }

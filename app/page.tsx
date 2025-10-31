@@ -1,11 +1,16 @@
 import DisclosureButton from "@/components/DisclosureButton";
 import Logo from "@/components/Logo";
 import MegaDropdownMenu from "@/components/MegaDropdownMenu";
+import clsx from "clsx";
 
 export default function Home() {
   return (
     <>
-      <header>
+      <header
+        className={clsx(
+          "flex items-center justify-between border-b border-gray-200",
+        )}
+      >
         <Logo />
         <MegaDropdownMenu />
         <DisclosureButton />
