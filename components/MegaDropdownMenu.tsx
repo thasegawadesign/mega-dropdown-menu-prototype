@@ -3,7 +3,7 @@
 import { MEGA_SECTIONS, MegaSection, navId } from "@/constants/mega-data";
 import clsx from "clsx";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 
 type Props = {
   sections?: MegaSection[];
@@ -41,10 +41,16 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
       <div className={clsx("absolute inset-x-0 top-18 z-50 hidden lg:block")}>
         <nav>
           {sections.map((section) => {
+            const open = openId === section.id;
             return (
               <div
                 key={section.id}
-                className={clsx(openId === section.id ? "block" : "hidden")}
+                className={clsx(
+                  "absolute right-0 left-0 transition duration-200 will-change-[opacity,transform]",
+                  open
+                    ? "pointer-events-auto opacity-100"
+                    : "pointer-events-none opacity-0",
+                )}
                 onMouseLeave={() => setOpenId(null)}
               >
                 <section className={clsx("bg-white")}>
@@ -60,7 +66,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
                   </h3>
                   <ul>
                     {section.columns?.map((column) => (
-                      <div key={column.title}>
+                      <React.Fragment key={column.title}>
                         {column.items.map((item) => (
                           <li key={item.label}>
                             <Link
@@ -73,7 +79,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
                             </Link>
                           </li>
                         ))}
-                      </div>
+                      </React.Fragment>
                     ))}
                   </ul>
                 </section>
