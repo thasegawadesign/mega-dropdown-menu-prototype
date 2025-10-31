@@ -22,6 +22,7 @@ export default function Home() {
           width={5464}
           height={3640}
           alt="都市の航空写真"
+          className={clsx("h-[400px] w-full object-cover lg:h-[600px]")}
           priority
         />
       </main>
