@@ -14,8 +14,16 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
         <ul className={clsx("hidden lg:flex")}>
           {sections.map((section) => (
             <li key={section.label}>
-              <button className={clsx("h-18 cursor-pointer px-6")}>
-                <span className={clsx("text-sm font-medium text-gray-800")}>
+              <button
+                className={clsx(
+                  "group after:bg-primary relative h-18 cursor-pointer px-6 after:absolute after:inset-x-0 after:bottom-0.5 after:h-[3px] after:origin-bottom after:scale-y-0 after:opacity-0 after:transition-all after:duration-500 hover:after:scale-y-100 hover:after:opacity-100 hover:after:duration-200",
+                )}
+              >
+                <span
+                  className={clsx(
+                    "group-hover:text-primary text-sm font-medium text-gray-800 transition-colors",
+                  )}
+                >
                   {section.label}
                 </span>
               </button>
