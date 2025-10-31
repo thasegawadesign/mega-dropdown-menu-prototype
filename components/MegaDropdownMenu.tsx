@@ -3,7 +3,7 @@
 import { MEGA_SECTIONS, MegaSection, navId } from "@/constants/mega-data";
 import clsx from "clsx";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 type Props = {
   sections?: MegaSection[];
@@ -11,6 +11,18 @@ type Props = {
 
 export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
   const [openId, setOpenId] = useState<navId | null>(null);
+
+  const closeT = useRef<number | null>(null);
+  const clearClose = () => {
+    if (closeT.current) {
+      clearTimeout(closeT.current);
+      closeT.current = null;
+    }
+  };
+  const scheduleClose = (ms = 1000) => {
+    clearClose();
+    closeT.current = window.setTimeout(() => setOpenId(null), ms);
+  };
 
   return (
     <>
@@ -25,9 +37,13 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
                     open
                       ? "after:bg-primary after:scale-y-100 after:opacity-100"
                       : "",
-                    "group after:bg-primary relative h-18 cursor-pointer px-6 after:absolute after:inset-x-0 after:bottom-0.5 after:h-[3px] after:origin-bottom after:scale-y-0 after:opacity-0 after:transition-all after:duration-500 hover:after:scale-y-100 hover:after:opacity-100 hover:after:duration-200 focus-visible:after:absolute focus-visible:after:scale-y-100 focus-visible:after:opacity-100",
+                    "group after:bg-primary relative h-18 cursor-pointer px-6 after:absolute after:inset-x-0 after:bottom-0.5 after:h-1 after:origin-bottom after:scale-y-0 after:opacity-0 after:transition-all after:duration-500 hover:after:scale-y-100 hover:after:opacity-100 hover:after:duration-200 focus-visible:after:absolute focus-visible:after:scale-y-100 focus-visible:after:opacity-100",
                   )}
-                  onMouseEnter={() => setOpenId(section.id)}
+                  onPointerEnter={() => {
+                    clearClose();
+                    setOpenId(section.id);
+                  }}
+                  onPointerLeave={() => scheduleClose(220)}
                   aria-expanded={openId === section.id}
                 >
                   <span
@@ -57,10 +73,11 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
                     ? "pointer-events-auto opacity-100"
                     : "pointer-events-none opacity-0",
                 )}
-                onMouseLeave={() => setOpenId(null)}
+                onPointerEnter={clearClose}
+                onPointerLeave={() => scheduleClose(220)}
               >
                 <section className={clsx("bg-white")}>
-                  <div className={clsx("mx-auto max-w-[560px] pt-10 pb-20")}>
+                  <div className={clsx("mx-auto max-w-[584px] pt-10 pb-20")}>
                     <h3 className={clsx("mb-8")}>
                       <Link
                         href={section.href}
