@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <header
         className={clsx(
-          "flex items-center justify-between border-b border-gray-200",
+          "relative flex items-center justify-between border-b border-gray-200",
         )}
       >
         <Logo />
