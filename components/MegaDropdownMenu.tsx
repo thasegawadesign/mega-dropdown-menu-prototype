@@ -16,26 +16,32 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
     <>
       <nav>
         <ul className={clsx("hidden lg:flex")}>
-          {sections.map((section) => (
-            <li key={section.id}>
-              <button
-                className={clsx(
-                  "group after:bg-primary relative h-18 cursor-pointer px-6 after:absolute after:inset-x-0 after:bottom-0.5 after:h-[3px] after:origin-bottom after:scale-y-0 after:opacity-0 after:transition-all after:duration-500 hover:after:scale-y-100 hover:after:opacity-100 hover:after:duration-200 focus-visible:after:absolute focus-visible:after:scale-y-100 focus-visible:after:opacity-100",
-                )}
-                onMouseEnter={() => setOpenId(section.id)}
-                onMouseLeave={() => setOpenId(null)}
-                aria-expanded={openId === section.id}
-              >
-                <span
+          {sections.map((section) => {
+            const open = openId === section.id;
+            return (
+              <li key={section.id}>
+                <button
                   className={clsx(
-                    "group-hover:text-primary group-focus-visible:text-primary text-sm font-medium tracking-wider text-gray-800 transition-colors",
+                    open
+                      ? "after:bg-primary after:scale-y-100 after:opacity-100"
+                      : "",
+                    "group after:bg-primary relative h-18 cursor-pointer px-6 after:absolute after:inset-x-0 after:bottom-0.5 after:h-[3px] after:origin-bottom after:scale-y-0 after:opacity-0 after:transition-all after:duration-500 hover:after:scale-y-100 hover:after:opacity-100 hover:after:duration-200 focus-visible:after:absolute focus-visible:after:scale-y-100 focus-visible:after:opacity-100",
                   )}
+                  onMouseEnter={() => setOpenId(section.id)}
+                  aria-expanded={openId === section.id}
                 >
-                  {section.label}
-                </span>
-              </button>
-            </li>
-          ))}
+                  <span
+                    className={clsx(
+                      open ? "text-primary" : "",
+                      "group-hover:text-primary group-focus-visible:text-primary text-sm font-medium tracking-wider text-gray-800 transition-colors",
+                    )}
+                  >
+                    {section.label}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <div className={clsx("absolute inset-x-0 top-18 z-50 hidden lg:block")}>
@@ -54,34 +60,36 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
                 onMouseLeave={() => setOpenId(null)}
               >
                 <section className={clsx("bg-white")}>
-                  <h3>
-                    <Link
-                      href={section.href}
-                      className={clsx(
-                        "hover:text-primary focus-visible:text-primary text-lg font-medium transition-colors",
-                      )}
-                    >
-                      {section.label}
-                    </Link>
-                  </h3>
-                  <ul>
-                    {section.columns?.map((column) => (
-                      <React.Fragment key={column.title}>
-                        {column.items.map((item) => (
-                          <li key={item.label}>
-                            <Link
-                              href={item.href}
-                              className={clsx(
-                                "hover:text-primary focus-visible:text-primary text-base transition-colors",
-                              )}
-                            >
-                              {item.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </React.Fragment>
-                    ))}
-                  </ul>
+                  <div className={clsx("mx-auto max-w-[560px] pt-10 pb-20")}>
+                    <h3 className={clsx("mb-8")}>
+                      <Link
+                        href={section.href}
+                        className={clsx(
+                          "hover:text-primary focus-visible:text-primary text-lg font-medium transition-colors",
+                        )}
+                      >
+                        {section.label}
+                      </Link>
+                    </h3>
+                    <ul className={clsx("grid grid-cols-3 gap-x-16 gap-y-4")}>
+                      {section.columns?.map((column) => (
+                        <React.Fragment key={column.title}>
+                          {column.items.map((item) => (
+                            <li key={item.label}>
+                              <Link
+                                href={item.href}
+                                className={clsx(
+                                  "hover:text-primary focus-visible:text-primary text-base transition-colors",
+                                )}
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </React.Fragment>
+                      ))}
+                    </ul>
+                  </div>
                 </section>
               </div>
             );
