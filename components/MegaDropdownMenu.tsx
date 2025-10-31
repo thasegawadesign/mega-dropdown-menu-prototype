@@ -67,19 +67,22 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
             return (
               <div
                 key={section.id}
-                className={clsx(
-                  "absolute right-0 left-0 transition duration-200 will-change-[opacity,transform]",
-                  open
-                    ? "pointer-events-auto opacity-100"
-                    : "pointer-events-none opacity-0",
-                )}
+                className={clsx("absolute right-0 left-0")}
                 onPointerEnter={clearClose}
                 onPointerLeave={() => scheduleClose(220)}
               >
-                <section className={clsx("bg-white")}>
+                <section
+                  className={clsx(
+                    "origin-top bg-white transition-[max-height] delay-200 duration-500 ease-in-out",
+                    open ? "max-h-screen" : "max-h-0",
+                  )}
+                >
                   <div
                     className={clsx(
-                      "mx-auto max-w-[516px] pt-10 pb-20 xl:max-w-[556px] 2xl:max-w-[588px]",
+                      "mx-auto max-w-[516px] pt-10 pb-20 transition delay-200 duration-300 will-change-[opacity,transform] xl:max-w-[556px] 2xl:max-w-[588px]",
+                      open
+                        ? "pointer-events-auto opacity-100"
+                        : "pointer-events-none opacity-0",
                     )}
                   >
                     <h3 className={clsx("mb-8")}>
@@ -120,7 +123,7 @@ export default function MegaDropdownMenu({ sections = MEGA_SECTIONS }: Props) {
       <div
         className={clsx(
           openId !== null ? "opacity-100" : "pointer-events-none opacity-0",
-          "absolute inset-x-0 top-18 block h-screen w-full bg-black/40 transition-opacity duration-500",
+          "absolute inset-x-0 top-18 block h-screen w-full bg-black/40 transition-opacity duration-600",
         )}
       ></div>
     </>
