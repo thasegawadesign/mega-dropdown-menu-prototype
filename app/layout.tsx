@@ -3,8 +3,8 @@ import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "メガドロップダウンメニューのインタラクション検証プロトタイプ",
-  description: "メガドロップダウンメニューのインタラクション検証プロトタイプ",
+  title: "メガドロップダウンメニュー、インタラクション検証プロトタイプ",
+  description: "メガドロップダウンメニュー、インタラクション検証プロトタイプ",
 };
 
 const notoSansJp = Noto_Sans_JP({
