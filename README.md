@@ -24,23 +24,23 @@
 ## セットアップ
 
 ```bash
-npm install
+pnpm install
 ```
 
 ## 開発コマンド
 
 ```bash
 # 開発サーバー起動
-npm run dev
+pnpm dev
 
 # 本番ビルド
-npm run build
+pnpm build
 
 # 本番起動
-npm run start
+pnpm start
 
 # Lint
-npm run lint
+pnpm lint
 ```
 
 開発サーバー起動後、`http://localhost:3000` を開いて確認できます。
