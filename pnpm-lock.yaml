@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@headlessui/react':
-        specifier: ^2.2.9
+        specifier: ^2.2.10
         version: 2.2.10(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       clsx:
         specifier: ^2.1.1
@@ -18,44 +18,44 @@ importers:
         specifier: ^0.548.0
         version: 0.548.0(react@19.2.7)
       next:
-        specifier: ^16.2.6
+        specifier: ^16.2.9
         version: 16.2.9(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       react:
-        specifier: ^19
+        specifier: ^19.2.7
         version: 19.2.7
       react-dom:
-        specifier: ^19
+        specifier: ^19.2.7
         version: 19.2.7(react@19.2.7)
     devDependencies:
       '@tailwindcss/postcss':
-        specifier: ^4
+        specifier: ^4.3.1
         version: 4.3.1
       '@types/node':
-        specifier: ^20
+        specifier: ^20.19.43
         version: 20.19.43
       '@types/react':
-        specifier: ^19
+        specifier: ^19.2.17
         version: 19.2.17
       '@types/react-dom':
-        specifier: ^19
+        specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.17)
       eslint:
-        specifier: ^9
+        specifier: ^9.39.4
         version: 9.39.4(jiti@2.7.0)
       eslint-config-next:
         specifier: 16.0.10
         version: 16.0.10(@typescript-eslint/parser@8.61.1(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3)
       prettier:
-        specifier: ^3.6.2
+        specifier: ^3.8.4
         version: 3.8.4
       prettier-plugin-tailwindcss:
         specifier: ^0.6.14
         version: 0.6.14(prettier@3.8.4)
       tailwindcss:
-        specifier: ^4
+        specifier: ^4.3.1
         version: 4.3.1
       typescript:
-        specifier: ^5
+        specifier: ^5.9.3
         version: 5.9.3
 
 packages:
