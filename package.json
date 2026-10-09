@@ -13,21 +13,21 @@
     "@headlessui/react": "^2.2.10",
     "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.548.0",
-    "next": "^16.2.9",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "lucide-react": "^1.54.0",
+    "next": "^16.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.1",
-    "@types/node": "^24.13.2",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "eslint": "^9.39.4",
-    "eslint-config-next": "16.0.10",
-    "prettier": "^3.8.4",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "tailwindcss": "^4.3.1",
-    "typescript": "^5.9.3"
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^10.12.0",
+    "eslint-config-next": "16.4.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3"
   }
 }
